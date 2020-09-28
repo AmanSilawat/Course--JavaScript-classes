@@ -137,7 +137,7 @@ function deepFreeze(object) {
         console.log(name, '--', object[name]);
         const value = object[name];
 
-        if (value && typeof value === 'object') {
+        if (value && typeof value == 'object') {
             deepFreeze(value);
         }
     }
@@ -146,6 +146,8 @@ function deepFreeze(object) {
 }
 
 // deepFreeze(obj2);
+// obj2.internal.b.c.d = '444';
+// console.log(obj2)
 
 obj2.internal.a = 'anotherValue'; // fails silently in non-strict mode
 obj2.internal.a; // null
